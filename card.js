@@ -17,7 +17,7 @@ var card = Conductor.card({
 
   App: null,
 
-  defaultTemplate: "<div id=\"card\">Hello Bootstrap.  Click me.</div>",
+  defaultTemplate: "<div id=\"card\"></div>",
 
   render: function (intent, dimensions) {
     document.body.innerHTML = this.defaultTemplate;
@@ -26,9 +26,7 @@ var card = Conductor.card({
 
   defaultOnActivation: function(){
     card.consumers.repository.request('getRepository').then(function(name) {
-      $('#card').click(function() {
-        alert('You clicked me in ' + name);
-      });
+      //do we need this?
     });
   },
 
@@ -45,8 +43,6 @@ var card = Conductor.card({
     }
   }
 
-//  resize: function(dimensions) {
-//  }
 });
 
 export default card;

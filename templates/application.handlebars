@@ -1,1 +1,77 @@
-<h3>Bootstrapped!</h3>
+<h3>Travis: Current Build for {{repositoryName}}</h3>
+<table>
+  <tr>
+    <td>Build:</td>
+    <td>777</td>
+    <td>Commit:</td>
+    <td>aaaa111 (master)</td>
+  </tr>
+  <tr>
+    <td>State:</td>
+    <td>Passed</td>
+    <td>Pull Request:td</td>
+    <td>#4 intelligence test</td>
+  </tr>
+  <tr>
+    <td>Finished:</td>
+    <td>less than a minute ago</td>
+    <td>Author:</td>
+    <td>Alan Turing</td>
+  </tr>
+  <tr>
+    <td>Duration:</td>
+    <td>4 min 26 sec</td>
+    <td>Committer:</td>
+    <td>Alan Turing</td>
+  </tr>
+  <tr>
+    <td>Message:</td>
+    <td colspan="3">passes more test but still can't handle complex idioms</td>
+  </tr>
+  <tr>
+    <td>Config:</td>
+    <td colspan="3">-</td>
+  </tr>
+</table>
+
+
+<hr>
+
+<h3>Travis: Build History for {{repositoryName}}</h3>
+
+<table>
+  <tr>
+    <th>Build</th>
+    <th>Message</th>
+    <th>Commit</th>
+    <th>Duration</th>
+    <th>Finished</th>
+  </tr>
+  <tr>
+    <td>776</td>
+    <td>module to interpret idioms and the many vagaries of human speech</td>
+    <td>aaaa111 (experimental)</td>
+    <td>12 min 21 sec</td>
+    <td>6 minutes ago</td>
+  </tr>
+  <tr>
+    <td>776</td>
+    <td>module for basic grammar parsing</td>
+    <td>aaaa111 (experimental)</td>
+    <td>12 min 21 sec</td>
+    <td>21 minutes ago</td>
+  </tr>
+  <tr>
+    <td>776</td>
+    <td>module for vocabulary acquisition</td>
+    <td>aaaa111 (experimental)</td>
+    <td>12 min 21 sec</td>
+    <td>about 3 days ago</td>
+  </tr>
+
+</table>
+{{#each}}
+  <div>{{number}}: {{title}}</div>
+{{/each}}
+
+
