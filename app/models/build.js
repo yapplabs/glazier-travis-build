@@ -2,41 +2,35 @@ import card from 'card';
 
 var Build = {
   /*
-    @public
+   @public
 
-    Fetches all builds given a repository name.
+   Fetches all builds given a repository name.
 
-    @method findStatusByRepositoryName
-    @param  repositoryName {String}
-    @returns {Ember.RSVP.Promise}
-  */
+   @method findStatusByRepositoryName
+   @param  repositoryName {String}
+   @returns {Ember.RSVP.Promise}
+   */
   //https://api.travis-ci.org/repos/yapplabs/glazier/builds
   findBuildsByRepositoryName: function(repositoryName) {
-    var service;
+    console.log("findBuildsByRepositoryName: get travis builds")
+    var service = card.consumers.fullXhr;
 
-    // todo
-    //    if (card.data.user) {
-    //      service = card.consumers.authenticatedTravisApi;
-    //    } else {
-    //      service = card.consumers.unauthenticatedTravisApi;
-    //    }
-    //
-    //    return service.request("ajax", {
-    //      url: '/repos/' + repositoryName + '/issues',
-    //      dataType: 'json'
-    //    });
-    return [];  //todo
+    return service.request("ajax", {
+      url: card.baseTravisUrl + '/repos/' + repositoryName + '/builds',
+      type: 'get',
+      dataType: 'json'
+    });
   },
 
   /*
-    @public
+   @public
 
-    Fetches the current issues given a repository name.
+   Fetches the current issues given a repository name.
 
-    @method findMineByRepositoryName
-    @param  repositoryName {String}
-    @returns {Ember.RSVP.Promise}
-  */
+   @method findMineByRepositoryName
+   @param  repositoryName {String}
+   @returns {Ember.RSVP.Promise}
+   */
   //https://api.travis-ci.org/repos/yapplabs/glazier/builds/9271771
   findBuildByRepositoryNameAndId: function(repositoryName, creator) {
 //    return card.consumers.authenticatedGithubApi.request("ajax", {

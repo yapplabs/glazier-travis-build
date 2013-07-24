@@ -8,8 +8,8 @@ function fetch() {
 
   var hash = {};
   hash.builds = Build.findBuildsByRepositoryName(repositoryName);
-  latestBuildId = 4 //todo get this from allBuild
-  hash.latestBuild = Build.findBuildByRepositoryNameAndId(latestBuildId)
+  //latestBuildId = 4 //todo get this from allBuild
+  //hash.latestBuild = Build.findBuildByRepositoryNameAndId(latestBuildId)
 
   return Ember.RSVP.hash(hash);
 }
@@ -21,10 +21,10 @@ var ApplicationRoute = Ember.Route.extend({
     applicationController.set('repositoryName', card.data.repositoryName);
 
 //    todo
-//    return fetch().then(function(hash) {
-//      applicationController.set('builds', hash.builds);
-//      return hash.latestBuild;
-//    });
+    return fetch().then(function(hash) {
+      applicationController.set('builds', hash.builds);
+      return []; //hash.latestBuild;
+    });
   }
 });
 

@@ -2,6 +2,7 @@
   "name": "glazier-travis-build",
   "glazierConfig": {
     "consumes": [
+      "fullXhr",
       "repository"
     ],
     "assetHost": "http://glazier.s3.amazonaws.com",

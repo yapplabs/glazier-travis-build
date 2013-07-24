@@ -10,8 +10,12 @@ Conductor.requireCSS('card.css');
 import TestConsumer from 'app/consumers/test';
 
 var card = Conductor.card({
+
+  baseTravisUrl: "https://api.travis-ci.org",
+
   consumers: {
     'test': TestConsumer,
+    'fullXhr': Conductor.Oasis.Consumer,
     'repository': Conductor.Oasis.Consumer
   },
 
