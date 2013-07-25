@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Build</th>
+    <th>Message</th>
+    <th>Commit</th>
+    <th>Duration</th>
+    <th>Finished</th>
+  </tr>
+  {{#each controller}}
+    <tr>
+      <td>{{number}} {{statusMsg}}</td>
+      <td>{{message}}</td>
+      <td>{{commit}}</td>
+      <td>{{durationMsg}}</td>
+      <td>{{finishedAtMsg}}</td>
+    </tr>
+  {{/each}}
+</table>

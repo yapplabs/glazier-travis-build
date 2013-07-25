@@ -22,13 +22,13 @@ function fetch() {
 var ApplicationRoute = Ember.Route.extend({
 
   model: function(){
-    var applicationController = this.controllerFor('application');
-    applicationController.set('repositoryName', card.data.repositoryName);
+    var buildController = this.controllerFor('build');
+    var historyController = this.controllerFor('history');
 
     return fetch().then(function(hash) {
-      applicationController.set('builds', hash.builds);
-      applicationController.set('currentBuild', hash.currentBuild);
-      return []; //if return hash.currentBuild throws error
+      buildController.set('content', hash.currentBuild);
+      historyController.set('content', hash.builds);
+      return []; //can error if return other things
     });
   }
 });
