@@ -3,15 +3,20 @@ import Conductor from 'conductor';
 import Build from 'app/models/build';
 
 function fetch() {
-  var repositoryName = card.data.repositoryName;
+  var repoName = card.data.repositoryName;
   var user = card.data.user;
 
   var hash = {};
-  hash.builds = Build.findBuildsByRepositoryName(repositoryName);
-  //latestBuildId = 4 //todo get this from allBuild
-  //hash.latestBuild = Build.findBuildByRepositoryNameAndId(latestBuildId)
-
-  return Ember.RSVP.hash(hash);
+  return Build.findBuildsByRepositoryName(repoName).then(function(builds){
+    hash.builds = builds;
+    var currentBuildId = builds[0].id
+    return Build.findBuildByRepositoryNameAndId(repoName, currentBuildId);
+  }).then(function(currentBuild){
+      hash.currentBuild = currentBuild;
+      return hash;
+  }).then(null, function(reason){
+      console.log("travis failure: " + reason)
+  });
 }
 
 var ApplicationRoute = Ember.Route.extend({
@@ -20,10 +25,10 @@ var ApplicationRoute = Ember.Route.extend({
     var applicationController = this.controllerFor('application');
     applicationController.set('repositoryName', card.data.repositoryName);
 
-//    todo
     return fetch().then(function(hash) {
       applicationController.set('builds', hash.builds);
-      return []; //hash.latestBuild;
+      applicationController.set('currentBuild', hash.currentBuild);
+      return []; //if return hash.currentBuild throws error
     });
   }
 });
