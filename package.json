@@ -1,13 +1,12 @@
 {
   "name": "glazier-travis-build",
   "glazierConfig": {
+    "displayName": "Travis Builds",
     "consumes": [
       "fullXhr",
       "repository"
     ],
-    "assetHost": "http://glazier.s3.amazonaws.com",
-    "shortName": "glazier-travis-build",
-    "repositoryName": "yapplabs/glazier-travis-build"
+    "assetHost": "http://glazier.s3.amazonaws.com"
   },
   "version": "0.0.2",
   "description": "A starting point for making glazier cards",
