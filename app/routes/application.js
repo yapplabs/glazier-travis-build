@@ -30,6 +30,9 @@ var ApplicationRoute = Ember.Route.extend({
       historyController.set('content', hash.builds);
       return []; //can error if return other things
     });
+  },
+  setupController: function(controller, model) {
+    controller.set('repositoryName', card.data.repositoryName);
   }
 });
 
