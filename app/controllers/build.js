@@ -15,6 +15,7 @@ var BuildController = Ember.ObjectController.extend({
   }.property("duration"),
   finishedAtMsg: function(){
     var time = this.get("finished_at");
+    if (Ember.isEmpty(time)) return "";
     time = time.replace("T", " ");
     return time.replace("Z", "");
   }.property("finishedAt")
