@@ -36,7 +36,7 @@ var card = Conductor.card({
 
   activate: function() {
     this.App = requireModule('app/application');
-    this.defaultOnActivation()
+    this.defaultOnActivation();
   },
 
   metadata: {

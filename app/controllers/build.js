@@ -3,7 +3,7 @@ var BuildController = Ember.ObjectController.extend({
   statusMsg: function(){
     //specific build api calls return a status; history api calls returns result
     var status = this.get('status') || this.get('result');
-    if (typeof status=="undefined" || status==null){
+    if (Ember.isNone(status)) {
       return "status null";
     }
     return this.get('statusMsgMap')[status];

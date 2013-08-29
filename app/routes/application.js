@@ -9,13 +9,13 @@ function fetch() {
   var hash = {};
   return Build.findBuildsByRepositoryName(repoName).then(function(builds){
     hash.builds = builds;
-    var currentBuildId = builds[0].id
+    var currentBuildId = builds[0].id;
     return Build.findBuildByRepositoryNameAndId(repoName, currentBuildId);
   }).then(function(currentBuild){
       hash.currentBuild = currentBuild;
       return hash;
   }).then(null, function(reason){
-      console.log("travis failure: " + reason)
+      console.log("travis failure: " + reason);
   });
 }
 
