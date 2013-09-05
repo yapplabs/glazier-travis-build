@@ -15,8 +15,7 @@ var card = Conductor.card({
 
   consumers: {
     'test': TestConsumer,
-    'fullXhr': Conductor.Oasis.Consumer,
-    'repository': Conductor.Oasis.Consumer
+    'fullXhr': Conductor.Oasis.Consumer
   },
 
   App: null,
@@ -28,15 +27,8 @@ var card = Conductor.card({
     Ember.run(this.App, 'advanceReadiness');
   },
 
-  defaultOnActivation: function(){
-    card.consumers.repository.request('getRepository').then(function(name) {
-      //do we need this?
-    });
-  },
-
   activate: function() {
     this.App = requireModule('app/application');
-    this.defaultOnActivation();
   },
 
   metadata: {
