@@ -5,7 +5,7 @@
     "consumes": [
       "fullXhr"
     ],
-    "assetHost": "http://glazier.s3.amazonaws.com"
+    "assetHost": "https://glazier.s3.amazonaws.com"
   },
   "version": "0.0.2",
   "description": "A starting point for making glazier cards",
