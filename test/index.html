@@ -8,16 +8,17 @@
 <body>
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
-  <script src="./test/vendor/loader.js"></script>
+  <script src="./test/vendor/almond.js"></script>
+  <script src="./test/vendor/resolver.js"></script>
   <!-- <script src="./test/vendor/jquery.js"></script> -->
   <script src="./test/vendor/conductor.js.html"></script>
   <script src="./test/vendor/qunit.js"></script>
   <script src="./card.js"></script>
   <script src="./test.js"></script>
   <script>
-    Ember.keys(define.registry).forEach(function(moduleName){
+    Ember.keys(requirejs._eak_seen).forEach(function(moduleName){
       if (moduleName.indexOf('test') === 0) {
-        requireModule(moduleName);
+        require(moduleName);
       }
     });
   </script>

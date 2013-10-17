@@ -6,7 +6,6 @@
     "define",
     "console",
     "require",
-    "requireModule",
     "equal",
     "notEqual",
     "notStrictEqual",
